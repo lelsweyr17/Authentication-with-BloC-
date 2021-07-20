@@ -11,7 +11,7 @@ class PasswordTextField extends StatelessWidget {
       obscuringCharacter: '\u{26AB}',
       decoration: InputDecoration(
         labelText: 'Пароль',
-        // TODO: change focus color for label to accent color
+        // TODO: change focus color for label to accent color and size of font
         labelStyle: TextStyle(
             color: Colors.black38,
             fontFamily: 'SF Pro Display',

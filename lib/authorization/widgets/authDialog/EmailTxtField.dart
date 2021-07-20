@@ -11,7 +11,7 @@ class EmailTextField extends StatelessWidget {
       cursorColor: Theme.of(context).accentColor,
       decoration: InputDecoration(
         labelText: 'Email',
-        // TODO: change focus color for label to accent color
+        // TODO: change focus color for label to accent color and size of font
         labelStyle: TextStyle(
             color: Colors.black38,
             fontFamily: 'SF Pro Display',
