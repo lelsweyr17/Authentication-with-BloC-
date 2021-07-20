@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:test_app_surf/authorization/authDialog/components/EmailTxtField.dart';
-import 'package:test_app_surf/authorization/authDialog/components/PasswordTextField.dart';
-import 'package:test_app_surf/authorization/authDialog/components/TextButton.dart';
+import 'package:test_app_surf/authorization/UI/authDialog/components/EmailTxtField.dart';
+import 'package:test_app_surf/authorization/UI/authDialog/components/PasswordTextField.dart';
+import 'package:test_app_surf/authorization/UI/authDialog/components/TextButton.dart';
 
 class AuthorizationDialog extends StatelessWidget {
   const AuthorizationDialog({Key? key}) : super(key: key);

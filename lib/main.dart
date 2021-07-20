@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_app_surf/authorization/AuthorizationPage.dart';
+import 'package:test_app_surf/authorization/UI/AuthorizationPage.dart';
 
 void main() {
   runApp(MyApp());

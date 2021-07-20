@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_app_surf/authorization/authDialog/components/TextFieldStyle.dart';
+import 'package:test_app_surf/authorization/UI/authDialog/components/TextFieldStyle.dart';
 
 class PasswordTextField extends StatelessWidget {
   const PasswordTextField({Key? key}) : super(key: key);
