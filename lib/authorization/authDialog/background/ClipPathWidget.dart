@@ -5,7 +5,7 @@ class ClipPathWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipPath(
       child: Container(
-        height: MediaQuery.of(context).size.height / 2,
+        height: MediaQuery.of(context).size.height * 0.57,
         width: MediaQuery.of(context).size.width,
         child: Image(
           fit: BoxFit.fill,
@@ -24,7 +24,7 @@ class Clipper extends CustomClipper<Path> {
   Path getClip(Size size) {
     Path path = Path();
     path.lineTo(size.width, 0);
-    path.lineTo(size.width, size.height * 2 / 3);
+    path.lineTo(size.width, size.height * 0.7);
     path.lineTo(0, size.height);
     path.lineTo(0, 0);
     return path;

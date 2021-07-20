@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:test_app_surf/authorization/widgets/ClipPathWidget.dart';
-import 'package:test_app_surf/authorization/widgets/authDialog/AuthorizationDialog.dart';
+import 'package:test_app_surf/authorization/authDialog/background/ClipPathWidget.dart';
+import 'package:test_app_surf/authorization/authDialog/AuthorizationDialog.dart';
 
 class AuthorizationPage extends StatelessWidget {
   @override
