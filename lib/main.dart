@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Test App Surf',
       theme: ThemeData(
         primaryColor: Colors.white,
-        accentColor: Colors.red,
+        accentColor: Color.fromRGBO(155, 81, 224, 1),
         hintColor: Colors.grey,
       ),
       home: AuthorizationPage(),

@@ -9,7 +9,7 @@ class ClipPathWidget extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         child: Image(
           fit: BoxFit.fill,
-          image: AssetImage("images/auth.jpg"),
+          image: AssetImage("images/auth.png"),
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
         ),
