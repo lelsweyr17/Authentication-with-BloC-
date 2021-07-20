@@ -8,6 +8,7 @@ class PasswordTextField extends StatelessWidget {
     return TextField(
       cursorColor: Theme.of(context).accentColor,
       obscureText: true,
+      obscuringCharacter: '\u{26AB}',
       decoration: InputDecoration(
         labelText: 'Пароль',
         // TODO: change focus color for label to accent color
