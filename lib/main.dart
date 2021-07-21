@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:test_app_surf/authorization/BloC/Validation.dart';
 import 'package:test_app_surf/authorization/UI/AuthorizationPage.dart';
 
 void main() {
@@ -10,14 +12,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Test App Surf',
-      theme: ThemeData(
-        primaryColor: Colors.white,
-        accentColor: Color.fromRGBO(155, 81, 224, 1),
-        hintColor: Colors.grey,
+    return Provider(
+      create: (context) => Validate(),
+      child: MaterialApp(
+        title: 'Test App Surf',
+        theme: ThemeData(
+          primaryColor: Colors.white,
+          accentColor: Color.fromRGBO(155, 81, 224, 1),
+          hintColor: Colors.grey,
+        ),
+        home: AuthorizationPage(),
       ),
-      home: AuthorizationPage(),
     );
   }
 }

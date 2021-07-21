@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 class TextFieldStyle {
-  String label;
-  String hint;
+  final label;
+  final error;
 
-  TextFieldStyle({required String this.label, required String this.hint});
+  TextFieldStyle({required final this.label, required final this.error});
 
   InputDecoration? build() {
     return InputDecoration(
       labelText: label,
+      errorText: error,
       // TODO: padding is 9.0, can't do more than 6.0 (?)
       contentPadding: EdgeInsets.symmetric(vertical: 6.0),
       // TODO: change focus color for label to accent color and size of font
