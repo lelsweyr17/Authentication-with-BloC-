@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
           fontFamily: 'SF Pro Display'
         ),
         // home: LoadingErrorPage(),
-        // home: AuthorizationPage(),
-        home: UserPage(),
+        home: AuthorizationPage(),
+        // home: UserPage(),
       ),
     );
   }
