@@ -13,6 +13,7 @@ class AuthorizationPage extends StatelessWidget {
     final bloc = Provider.of<Validate>(context);
 
     return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
       body: Stack(
         children: [
           ClipPathWidget(),

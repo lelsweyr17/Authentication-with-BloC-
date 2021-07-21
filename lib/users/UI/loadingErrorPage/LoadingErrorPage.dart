@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:test_app_surf/users/loadingError/components/ErrorTextMessage.dart';
-import 'package:test_app_surf/users/loadingError/components/ReloadTextBotton.dart';
-import 'package:test_app_surf/users/loadingError/components/WarningSing.dart';
+import 'package:test_app_surf/users/UI/loadingErrorPage/components/ErrorTextMessage.dart';
+import 'package:test_app_surf/users/UI/loadingErrorPage/components/ReloadTextBotton.dart';
+import 'package:test_app_surf/users/UI/loadingErrorPage/components/WarningSing.dart';
 
-class LoadingError extends StatelessWidget {
-  const LoadingError({Key? key}) : super(key: key);
+class LoadingErrorPage extends StatelessWidget {
+  const LoadingErrorPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

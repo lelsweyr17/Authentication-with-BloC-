@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:test_app_surf/authorization/BloC/Validation.dart';
 import 'package:test_app_surf/authorization/UI/AuthPage.dart';
-import 'package:test_app_surf/users/loadingError/LoadingError.dart';
+import 'package:test_app_surf/users/UI/loadingErrorPage/LoadingErrorPage.dart';
+import 'package:test_app_surf/users/UI/userPage/UserPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,8 +25,9 @@ class MyApp extends StatelessWidget {
           hintColor: Colors.grey,
           fontFamily: 'SF Pro Display'
         ),
-        home: LoadingError(),
+        // home: LoadingErrorPage(),
         // home: AuthorizationPage(),
+        home: UserPage(),
       ),
     );
   }
