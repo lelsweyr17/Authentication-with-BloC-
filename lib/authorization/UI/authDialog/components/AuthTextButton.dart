@@ -14,18 +14,22 @@ class CustomTextButton extends StatelessWidget {
           return SizedBox(
             width: double.infinity,
             height: 40.0,
-            child: Container(
+            child: AnimatedContainer(
+                duration: Duration(milliseconds: 500),
                 decoration: BoxDecoration(
+                    // TODO: Changing button color via enter email and password (uncorrect)
                     color: !snapshot.hasData
                         ? Color.fromRGBO(155, 81, 224, 0.5)
                         : Color.fromRGBO(155, 81, 224, 1),
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.all(Radius.circular(30.0))),
                 child: TextButton(
-                    onPressed: () {},
+                    onPressed: !snapshot.hasData ? null : bloc.submitUser,
                     child: Text('Войти',
-                        style:
-                            TextStyle(fontSize: 16.0, color: Colors.white)))),
+                        style: TextStyle(
+                            fontSize: 16.0,
+                            color: Colors.white,
+                            fontFamily: 'SF Pro Display')))),
           );
         });
   }

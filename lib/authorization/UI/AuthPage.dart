@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:test_app_surf/authorization/BloC/Validation.dart';
-import 'package:test_app_surf/authorization/UI/background/ClipPathWidget.dart';
-import 'package:test_app_surf/authorization/UI/authDialog/AuthorizationDialog.dart';
+import 'package:test_app_surf/authorization/UI/background/AuthBackgroung.dart';
+import 'package:test_app_surf/authorization/UI/authDialog/AuthDialog.dart';
 import 'package:test_app_surf/authorization/UI/HeaderText.dart';
 
 class AuthorizationPage extends StatelessWidget {

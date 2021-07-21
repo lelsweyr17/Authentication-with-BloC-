@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_surf/authorization/BloC/Validation.dart';
-import 'package:test_app_surf/authorization/UI/authDialog/components/EmailTxtField.dart';
+import 'package:test_app_surf/authorization/UI/authDialog/components/EmailTextField.dart';
 import 'package:test_app_surf/authorization/UI/authDialog/components/PasswordTextField.dart';
-import 'package:test_app_surf/authorization/UI/authDialog/components/TextButton.dart';
+import 'package:test_app_surf/authorization/UI/authDialog/components/AuthTextButton.dart';
 
 class AuthorizationDialog extends StatelessWidget {
   const AuthorizationDialog(Validate this.bloc, {Key? key}) : super(key: key);
