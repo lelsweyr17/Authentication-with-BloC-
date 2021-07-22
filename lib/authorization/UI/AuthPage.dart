@@ -10,8 +10,6 @@ class AuthorizationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = Provider.of<Validate>(context);
-
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       body: Stack(
@@ -22,7 +20,9 @@ class AuthorizationPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 HeaderText(),
-                AuthorizationDialog(bloc),
+                Provider(
+                    create: (context) => Validate(),
+                    child: AuthorizationDialog()),
               ])
         ],
       ),

@@ -17,7 +17,7 @@ class PasswordTextField extends StatelessWidget {
             cursorWidth: 1.0,
             cursorColor: Theme.of(context).accentColor,
             obscureText: true,
-            obscuringCharacter: '\u{26AB}',
+            // obscuringCharacter: '\u{26AB}',
             decoration:
                 TextFieldStyle(label: 'Пароль', error: snapshot.error).build(),
             onChanged: bloc.changePassword,

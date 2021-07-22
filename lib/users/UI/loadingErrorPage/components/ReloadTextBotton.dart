@@ -19,9 +19,7 @@ class ReloadTextButton extends StatelessWidget {
             child: TextButton(
                 onPressed: () {},
                 child: Text('Обновить',
-                    style: TextStyle(
-                        fontSize: 16.0,
-                        color: Colors.white)))),
+                    style: TextStyle(fontSize: 16.0, color: Colors.white)))),
       ),
     );
   }

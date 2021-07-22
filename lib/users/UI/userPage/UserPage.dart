@@ -42,7 +42,6 @@ class UserPage extends StatelessWidget {
                   delegate: SliverChildBuilderDelegate(
                     (context, i) {
                       return Card(
-                        // semanticContainer: false,
                         elevation: 0.0,
                         child: ListTile(
                           title: Text(snapshot.data![i].name,
