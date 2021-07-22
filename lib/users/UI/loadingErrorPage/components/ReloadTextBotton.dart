@@ -21,8 +21,7 @@ class ReloadTextButton extends StatelessWidget {
                 child: Text('Обновить',
                     style: TextStyle(
                         fontSize: 16.0,
-                        color: Colors.white,
-                        fontFamily: 'SF Pro Display')))),
+                        color: Colors.white)))),
       ),
     );
   }

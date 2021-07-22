@@ -14,7 +14,7 @@ class TextFieldStyle {
       contentPadding: EdgeInsets.symmetric(vertical: 6.0),
       // TODO: change focus color for label to accent color and size of font
       labelStyle: TextStyle(
-          color: Colors.black38, fontFamily: 'SF Pro Display', fontSize: 16.0),
+          color: Colors.black38, fontSize: 16.0),
       errorStyle: TextStyle(color: Colors.red),
       enabledBorder: UnderlineInputBorder(
         borderSide: BorderSide(color: Color.fromRGBO(216, 216, 216, 1)),

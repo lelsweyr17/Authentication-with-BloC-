@@ -28,8 +28,7 @@ class CustomTextButton extends StatelessWidget {
                     child: Text('Войти',
                         style: TextStyle(
                             fontSize: 16.0,
-                            color: Colors.white,
-                            fontFamily: 'SF Pro Display')))),
+                            color: Colors.white)))),
           );
         });
   }
