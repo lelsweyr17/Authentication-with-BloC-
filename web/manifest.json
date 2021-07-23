@@ -1,6 +1,6 @@
 {
-    "name": "test_app_surf",
-    "short_name": "test_app_surf",
+    "name": "test_login",
+    "short_name": "test_login",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

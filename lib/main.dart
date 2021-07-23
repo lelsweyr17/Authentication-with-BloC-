@@ -1,32 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:test_app_surf/authBloC/auth.dart';
-import 'package:test_app_surf/authorization/UI/AuthPage.dart';
-import 'package:test_app_surf/users/UI/loadingErrorPage/LoadingErrorPage.dart';
-import 'package:test_app_surf/users/UI/userPage/UserPage.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'auth/authRepository.dart';
+import 'auth/login/loginView/AuthPage.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
-  Widget build(BuildContext context) {
-    return Provider(
-        create: (context) => Validate(),
-        child: MaterialApp( 
-          title: 'Test App Surf',
-          theme: ThemeData(
-              backgroundColor: Colors.white,
-              primaryColor: Colors.white,
-              accentColor: Color.fromRGBO(155, 81, 224, 1),
-              hintColor: Colors.grey,
-              fontFamily: 'SF Pro Display'),
-          // home: LoadingErrorPage(),
-          home: AuthorizationPage(),
-          // home: UserPage(),
-        ));
+  Widget build(context) {
+    return MaterialApp(
+      home: RepositoryProvider(
+        create: (context) => AuthRepository(),
+        child: AuthorizationPage(),
+      ),
+    );
   }
 }
