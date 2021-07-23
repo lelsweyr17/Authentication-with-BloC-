@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:test_app_surf/authorization/BloC/Validation.dart';
+import 'package:test_app_surf/authBloC/auth.dart';
+import 'package:test_app_surf/users/UI/userPage/UserPage.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton(Validate this.bloc, {Key? key}) : super(key: key);
@@ -24,12 +25,35 @@ class CustomTextButton extends StatelessWidget {
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.all(Radius.circular(30.0))),
                 child: TextButton(
-                    onPressed: !snapshot.hasData ? null : bloc.submitUser,
+                    onPressed: !snapshot.hasData
+                        ? null
+                        : () {
+                            Navigator.pop(context);
+                            Navigator.push(context,
+                                CustomPageRoute(UserPage()).build(context));
+                          },
                     child: Text('Войти',
-                        style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.white)))),
+                        style:
+                            TextStyle(fontSize: 16.0, color: Colors.white)))),
           );
+        });
+  }
+}
+
+class CustomPageRoute {
+  Widget page;
+
+  CustomPageRoute(this.page);
+  Route build(context) {
+    return PageRouteBuilder(
+        transitionDuration: Duration(milliseconds: 500),
+        transitionsBuilder: (context, animation, animationItem, child) {
+          animation =
+              CurvedAnimation(parent: animation, curve: Curves.decelerate);
+          return FadeTransition(opacity: animation, child: child);
+        },
+        pageBuilder: (context, animation, animationItem) {
+          return page;
         });
   }
 }

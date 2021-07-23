@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:test_app_surf/authorization/BloC/Validation.dart';
+import 'package:test_app_surf/authBloC/auth.dart';
 import 'package:test_app_surf/authorization/UI/background/AuthBackgroung.dart';
 import 'package:test_app_surf/authorization/UI/authDialog/AuthDialog.dart';
 import 'package:test_app_surf/authorization/UI/HeaderText.dart';
@@ -10,6 +10,7 @@ class AuthorizationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = Provider.of<Validate>(context);
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       body: Stack(
@@ -20,9 +21,7 @@ class AuthorizationPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 HeaderText(),
-                Provider(
-                    create: (context) => Validate(),
-                    child: AuthorizationDialog()),
+                AuthorizationDialog(bloc),
               ])
         ],
       ),

@@ -9,8 +9,8 @@ class WarningSign extends StatelessWidget {
       height: 80,
       width: 80,
       child: Image(
-        fit: BoxFit.cover,
-        image: AssetImage("images/warning-sign.jpg"),
+        fit: BoxFit.fill,
+        image: AssetImage("images/warning.png"),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
       ),

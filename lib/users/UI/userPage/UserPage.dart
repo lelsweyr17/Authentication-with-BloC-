@@ -29,8 +29,9 @@ class UserPage extends StatelessWidget {
               future: fetchUser(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
+                  //TODO: loader indicator to full screen
                   return SliverFillRemaining(
-                    child: Center(child: CircularIndicator()),
+                    child: CircularIndicator(),
                   );
                 }
                 if (snapshot.hasError) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_app_surf/authorization/BloC/Validation.dart';
+import 'package:test_app_surf/authBloC/auth.dart';
 import 'package:test_app_surf/authorization/UI/authDialog/components/TextFieldStyle.dart';
 
 class EmailTextField extends StatelessWidget {
