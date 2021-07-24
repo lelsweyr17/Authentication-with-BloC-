@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
         backgroundColor: Colors.white,
+        fontFamily: 'SF Pro Display',
       ),
       home: MultiRepositoryProvider(
         providers: [

@@ -6,6 +6,5 @@ class AuthRepository {
 
   Future<void> signOut() async {
     await Future.delayed(Duration(seconds: 2));
-    throw Exception('Failed to sign out');
   }
 }
