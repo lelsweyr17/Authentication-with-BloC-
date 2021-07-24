@@ -5,6 +5,8 @@ import 'package:test_login/auth/formSubmissionStatus.dart';
 import 'package:test_login/auth/login/loginBloc.dart';
 import 'package:test_login/auth/login/loginEvent.dart';
 import 'package:test_login/auth/login/loginState.dart';
+import 'package:test_login/session/sessionState.dart';
+import 'package:test_login/sessionCubit.dart';
 import 'TextFieldStyle.dart';
 
 class AuthorizationDialog extends StatelessWidget {
@@ -22,38 +24,24 @@ class AuthorizationDialog extends StatelessWidget {
     );
   }
 
-  void _showSnackBar(BuildContext context, String message) {
-    final snackBar = SnackBar(content: Text(message));
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-  }
-
   Widget _loginForm(context) {
-    // final bloc = Provider.of<LoginBloc>(context);
-    return BlocListener<LoginBloc, LoginState>(
-      listener: (context, state) {
-        final formStatus = state.formStatus;
-        if (formStatus is SubmissionFailed) {
-          return _showSnackBar(context, formStatus.exception.toString());
-        }
-      },
-      child: Form(
-        key: _formKey,
-        child: Center(
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.5,
-            alignment: Alignment.center,
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 50.0, vertical: 60.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  _emailField(),
-                  _passwordField(),
-                  _loginButton(),
-                ],
-              ),
+    return Form(
+      key: _formKey,
+      child: Center(
+        child: Container(
+          height: MediaQuery.of(context).size.height * 0.5,
+          alignment: Alignment.center,
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 50.0, vertical: 60.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                _emailField(),
+                _passwordField(),
+                _loginButton(),
+              ],
             ),
           ),
         ),
@@ -62,6 +50,7 @@ class AuthorizationDialog extends StatelessWidget {
   }
 
   Widget _emailField() {
+    //TODO: validator with streams
     return BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
       return TextFormField(
         validator: (value) => state.isValidEmail ? null : 'Неверный Email',
@@ -77,11 +66,12 @@ class AuthorizationDialog extends StatelessWidget {
   }
 
   Widget _passwordField() {
+    //TODO: validator with streams
     return BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
       return TextFormField(
         validator: (value) => state.isValidPassword
             ? null
-            : 'Слишком короткий или содержит спец символы',
+            : 'Слишком короткий или содержит спец.знаки',
         style: TextStyle(fontSize: 16.0),
         cursorWidth: 1.0,
         cursorColor: Theme.of(context).accentColor,
@@ -112,6 +102,7 @@ class AuthorizationDialog extends StatelessWidget {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         context.read<LoginBloc>().add(LoginSubmitted());
+                        context.read<SessionCubit>().showSession();
                       }
                     },
                     child: Text('Войти',
