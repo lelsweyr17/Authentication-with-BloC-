@@ -3,8 +3,20 @@ import 'package:test_login/auth/authRepository.dart';
 import 'package:test_login/session/sessionState.dart';
 
 class SessionCubit extends Cubit<SessionState> {
+  final AuthRepository authRepo;
 
-  SessionCubit() : super(Unauthenticated());
+  SessionCubit({required this.authRepo}) : super(UnknownSessionState()) {
+    attemptAutoLogin();
+  }
+
+  void attemptAutoLogin() async {
+    try {
+      await authRepo.attemptAutoLogin();
+      emit(Authenticated());
+    } on Exception {
+      emit(Unauthenticated());
+    }
+  }
 
   void showAuth() => emit(Unauthenticated());
   void showSession() {
@@ -12,8 +24,7 @@ class SessionCubit extends Cubit<SessionState> {
   }
 
   void signOut() {
-    // authRepo.signOut();
+    authRepo.signOut();
     emit(Unauthenticated());
   }
-  
 }

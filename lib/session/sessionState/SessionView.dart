@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_login/session/loadingErrorPage/LoadingErrorPage.dart';
 import 'package:test_login/session/loadingView.dart';
+import 'package:test_login/session/sessionCubit.dart';
 import 'package:test_login/session/sessionState/dataFromApi/User.dart';
+import 'package:test_login/session/userNavigator/userDataCubit.dart';
 
 class SessionView extends StatelessWidget {
   const SessionView({Key? key}) : super(key: key);
@@ -19,7 +22,9 @@ class SessionView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      BlocProvider.of<SessionCubit>(context).signOut();
+                    },
                     icon: Icon(Icons.logout_outlined,
                         color: Colors.black, size: 30.0)),
               )
@@ -40,15 +45,17 @@ class SessionView extends StatelessWidget {
               future: fetchUser(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
+                  print('waiting...');
                   //TODO: loader indicator to full screen
                   return SliverFillRemaining(
-                    child: LoadingView(),
-                  );
+                      // child: LoadingView(),
+                      );
                 }
                 if (snapshot.hasError) {
+                  print('has error...');
                   return SliverFillRemaining(
-                    child: LoadingErrorPage(),
-                  );
+                      // child: LoadingErrorPage(),
+                      );
                 }
                 return SliverList(
                   delegate: SliverChildBuilderDelegate(

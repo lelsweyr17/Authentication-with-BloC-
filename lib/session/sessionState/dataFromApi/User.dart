@@ -7,7 +7,11 @@ Future<List<User>> fetchUser() async {
       await http.get(Uri.https('jsonplaceholder.typicode.com', 'users'));
   var jsonData = jsonDecode(responce.body);
   for (var i in jsonData) {
-    User user = User(name: i['name'], email: i['email'], website: i['website'], companyName: i['company']['name']);
+    User user = User(
+        name: i['name'],
+        email: i['email'],
+        website: i['website'],
+        companyName: i['company']['name']);
     users.add(user);
   }
   if (responce.statusCode == 200) {
@@ -23,7 +27,11 @@ class User {
   final website;
   final companyName;
 
-  User({required this.name, required this.email, required this.website, required this.companyName});
+  User(
+      {required this.name,
+      required this.email,
+      required this.website,
+      required this.companyName});
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(

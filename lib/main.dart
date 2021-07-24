@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 import 'package:test_login/appNavigator.dart';
 import 'package:test_login/session/sessionCubit.dart';
+import 'package:test_login/session/userNavigator/userRepository.dart';
 import 'auth/authRepository.dart';
 
 void main() {
@@ -13,12 +15,19 @@ class MyApp extends StatelessWidget {
   Widget build(context) {
     return MaterialApp(
       theme: ThemeData(
-          primarySwatch: Colors.purple,
+        primarySwatch: Colors.purple,
+        backgroundColor: Colors.white,
       ),
-      home: RepositoryProvider(
-        create: (context) => AuthRepository(),
+      home: MultiRepositoryProvider(
+        providers: [
+          RepositoryProvider<AuthRepository>(
+              create: (context) => AuthRepository()),
+          RepositoryProvider<UserRepository>(
+              create: (context) => UserRepository()),
+        ],
         child: BlocProvider(
-          create: (context) => SessionCubit(),
+          create: (context) =>
+              SessionCubit(authRepo: context.read<AuthRepository>()),
           child: AppNavigator(),
         ),
       ),

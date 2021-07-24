@@ -13,11 +13,11 @@ class LoginState {
   bool _emailValidation(email) {
     RegExp regExp = RegExp(
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
-     if (!regExp.hasMatch(email)) {
-       return false;
-     } else {
-       return true;
-     }
+    if (!regExp.hasMatch(email)) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   // Password validation
@@ -32,7 +32,8 @@ class LoginState {
 
   // Login button validation
   bool _isLoggedIn() {
-    if (_emailValidation(email) == true && _passwordValidation(password) == true) {
+    if (_emailValidation(email) == true &&
+        _passwordValidation(password) == true) {
       return true;
     } else {
       return false;
@@ -44,7 +45,8 @@ class LoginState {
       this.password = '',
       this.formStatus = const InitialFormStatus()});
 
-  LoginState copyWith({String? email, String? password, FormSubmissionStatus? formStatus}) {
+  LoginState copyWith(
+      {String? email, String? password, FormSubmissionStatus? formStatus}) {
     return LoginState(
       email: email ?? this.email,
       password: password ?? this.password,
