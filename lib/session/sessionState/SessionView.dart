@@ -15,13 +15,24 @@ class SessionView extends StatelessWidget {
           SliverAppBar(
             //TODO: floating alignment of title(from bottomLeft to Center)
             expandedHeight: 120.0,
+            actions: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.logout_outlined,
+                        color: Colors.black, size: 30.0)),
+              )
+            ],
             floating: true,
             pinned: true,
             backgroundColor: Colors.white,
             flexibleSpace: FlexibleSpaceBar(
                 title: Text('Пользователи',
-                    style:
-                        TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold, color: Colors.black)),
+                    style: TextStyle(
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black)),
                 titlePadding: EdgeInsets.all(16.0),
                 centerTitle: false),
           ),

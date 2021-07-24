@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_login/appNavigator.dart';
-import 'package:test_login/sessionCubit.dart';
+import 'package:test_login/session/sessionCubit.dart';
 import 'auth/authRepository.dart';
 
 void main() {

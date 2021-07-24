@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_login/session/loadingView.dart';
 import 'package:test_login/session/sessionState.dart';
 import 'package:test_login/session/sessionState/SessionView.dart';
-import 'package:test_login/sessionCubit.dart';
+import 'package:test_login/session/sessionCubit.dart';
 
 import 'auth/login/loginView/AuthPage.dart';
 

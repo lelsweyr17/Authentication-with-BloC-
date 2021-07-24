@@ -6,7 +6,7 @@ import 'package:test_login/auth/login/loginBloc.dart';
 import 'package:test_login/auth/login/loginEvent.dart';
 import 'package:test_login/auth/login/loginState.dart';
 import 'package:test_login/session/sessionState.dart';
-import 'package:test_login/sessionCubit.dart';
+import 'package:test_login/session/sessionCubit.dart';
 import 'TextFieldStyle.dart';
 
 class AuthorizationDialog extends StatelessWidget {
