@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_login/authSession/loginView/AuthPage.dart';
-import 'package:test_login/appNavigator/sessionState.dart';
-import 'package:test_login/appNavigator/sessionCubit.dart';
-import 'package:test_login/userSession/userNavigator/userDataCubit.dart';
+import 'package:test_login/appNavigator/Cubit/sessionState.dart';
+import 'package:test_login/appNavigator/Cubit/sessionCubit.dart';
+import 'package:test_login/userSession/userNavigator/Cubit/userDataCubit.dart';
 import 'package:test_login/userSession/userNavigator/userNavigator.dart';
 import 'package:test_login/userSession/userRepository.dart';
 

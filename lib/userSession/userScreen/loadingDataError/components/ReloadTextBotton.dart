@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ReloadTextButton extends StatelessWidget {
-  const ReloadTextButton({Key? key}) : super(key: key);
+  final cubit;
+  const ReloadTextButton({required final this.cubit}) : super();
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,9 @@ class ReloadTextButton extends StatelessWidget {
                 shape: BoxShape.rectangle,
                 borderRadius: BorderRadius.all(Radius.circular(30.0))),
             child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  cubit.attemptLoadingData();
+                },
                 child: Text('Обновить',
                     style: TextStyle(fontSize: 16.0, color: Colors.white)))),
       ),

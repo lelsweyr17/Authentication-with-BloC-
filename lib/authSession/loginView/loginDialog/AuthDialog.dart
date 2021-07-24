@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:test_login/appNavigator/sessionCubit.dart';
+import 'package:test_login/appNavigator/Cubit/sessionCubit.dart';
 import 'package:test_login/authSession/loginBloC/loginBloc.dart';
 import 'package:test_login/authSession/loginBloC/loginEvent.dart';
 import 'package:test_login/authSession/loginBloC/loginState.dart';

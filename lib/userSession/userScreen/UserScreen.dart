@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_login/userSession/userScreen/dataFromApi/User.dart';
-import 'package:test_login/appNavigator/sessionCubit.dart';
+import 'package:test_login/userSession/userNavigator/Cubit/userDataCubit.dart';
+import 'package:test_login/userSession/userNavigator/Cubit/userDataState.dart';
+import 'package:test_login/appNavigator/Cubit/sessionCubit.dart';
 
 class UserScreen extends StatelessWidget {
-  const UserScreen({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    final UserDataCubit cubit = context.read<UserDataCubit>();
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
@@ -38,30 +38,28 @@ class UserScreen extends StatelessWidget {
                 titlePadding: EdgeInsets.all(16.0),
                 centerTitle: false),
           ),
-          FutureBuilder<List<User>>(
-              future: fetchUser(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return SliverFillRemaining();
+          BlocBuilder<UserDataCubit, UserDataState>(
+              bloc: cubit,
+              builder: (context, state) {
+                if (state is LoadingDataState) {
+                  cubit.attemptLoadingData();
                 }
-                if (snapshot.hasError) {
-                  return SliverFillRemaining();
-                }
-                return SliverList(
-                  delegate: SliverChildBuilderDelegate(
+                if (state is LoadedDataState) {
+                  return SliverList(
+                      delegate: SliverChildBuilderDelegate(
                     (context, i) {
                       return Card(
                         elevation: 0.0,
                         child: ListTile(
-                          title: Text(snapshot.data![i].name,
+                          title: Text('${state.loadedUser[i].name}',
                               style: TextStyle(
                                   fontSize: 20.0, fontWeight: FontWeight.bold)),
                           subtitle: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('${snapshot.data![i].email}',
+                              Text('${state.loadedUser[i].email}',
                                   style: TextStyle(fontSize: 13.0)),
-                              Text('${snapshot.data![i].companyName}',
+                              Text('${state.loadedUser[i].companyName}',
                                   style: TextStyle(
                                       fontSize: 13.0, color: Colors.black)),
                             ],
@@ -74,10 +72,11 @@ class UserScreen extends StatelessWidget {
                         ),
                       );
                     },
-                    childCount: snapshot.data!.length,
-                  ),
-                );
-              })
+                    childCount: state.loadedUser.length,
+                  ));
+                }
+                return SliverFillRemaining();
+              }),
         ],
       ),
     );

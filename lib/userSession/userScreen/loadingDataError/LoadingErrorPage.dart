@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_login/userSession/userNavigator/Cubit/userDataCubit.dart';
+import 'package:test_login/userSession/userNavigator/Cubit/userDataState.dart';
 import 'components/ErrorTextMessage.dart';
 import 'components/ReloadTextBotton.dart';
 import 'components/WarningSing.dart';
@@ -8,20 +11,25 @@ class LoadingErrorPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
-      body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          WarningSign(),
-          SizedBox(height: 30.0),
-          ErrorTextMessage(),
-          SizedBox(height: 30.0),
-          ReloadTextButton(),
-        ],
-      )),
-    );
+    final UserDataCubit cubit = context.read<UserDataCubit>();
+    return BlocBuilder<UserDataCubit, UserDataState>(
+        bloc: cubit,
+        builder: (context, state) {
+          return Scaffold(
+            backgroundColor: Theme.of(context).backgroundColor,
+            body: Center(
+                child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                WarningSign(),
+                SizedBox(height: 30.0),
+                ErrorTextMessage(),
+                SizedBox(height: 30.0),
+                ReloadTextButton(cubit: cubit),
+              ],
+            )),
+          );
+        });
   }
 }
