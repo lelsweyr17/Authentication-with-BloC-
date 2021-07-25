@@ -13,6 +13,7 @@ class AuthorizationDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      // TODO: color of elevation in RGBO(2, 28, 96, 0.2)
       insetPadding: EdgeInsets.symmetric(horizontal: 24.0),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(16.0)),
