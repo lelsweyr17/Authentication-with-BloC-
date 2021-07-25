@@ -12,7 +12,6 @@ class UserRepository {
       User user = User(
           name: i['name'],
           email: i['email'],
-          website: i['website'],
           companyName: i['company']['name']);
       users.add(user);
     }
