@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:test_login/userSession/userScreen/User/User.dart';
 import 'package:http/http.dart' as http;
+import 'package:test_login/userSession/userData/User.dart';
 
 class UserRepository {
   Future<List<User>> fetchUser() async {

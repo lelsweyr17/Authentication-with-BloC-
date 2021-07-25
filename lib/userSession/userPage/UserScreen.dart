@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_login/userSession/userNavigator/Cubit/userDataCubit.dart';
-import 'package:test_login/userSession/userNavigator/Cubit/userDataState.dart';
+import 'package:test_login/userSession/userSessionNavigator/Cubit/userDataCubit.dart';
+import 'package:test_login/userSession/userSessionNavigator/Cubit/userDataState.dart';
 import 'package:test_login/appNavigator/Cubit/sessionCubit.dart';
 
 class UserScreen extends StatelessWidget {

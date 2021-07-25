@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_login/userSession/userNavigator/Cubit/userDataState.dart';
-import 'package:test_login/userSession/userRepository.dart';
-import 'package:test_login/userSession/userScreen/User/User.dart';
+import 'package:test_login/userSession/userData/User.dart';
+import 'package:test_login/userSession/userSessionNavigator/Cubit/userDataState.dart';
+import 'package:test_login/userSession/userData/userRepository.dart';
 
 class UserDataCubit extends Cubit<UserDataState> {
   final UserRepository userRepo;

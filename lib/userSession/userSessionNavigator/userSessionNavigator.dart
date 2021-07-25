@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_login/userSession/loadingData.dart';
-import 'package:test_login/userSession/userNavigator/Cubit/userDataCubit.dart';
-import 'package:test_login/userSession/userNavigator/Cubit/userDataState.dart';
-import 'package:test_login/userSession/userScreen/UserScreen.dart';
-import 'package:test_login/userSession/userScreen/loadingDataError/LoadingErrorPage.dart';
+import 'package:test_login/userSession/userPage/loadingData.dart';
+import 'package:test_login/userSession/userSessionNavigator/Cubit/userDataCubit.dart';
+import 'package:test_login/userSession/userSessionNavigator/Cubit/userDataState.dart';
+import 'package:test_login/userSession/userPage/UserScreen.dart';
+import 'package:test_login/userSession/userPage/loadingDataError/LoadingErrorPage.dart';
 
 class UserNavigator extends StatelessWidget {
   @override

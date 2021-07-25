@@ -1,4 +1,4 @@
-import 'package:test_login/userSession/userScreen/User/User.dart';
+import 'package:test_login/userSession/userData/User.dart';
 
 abstract class UserDataState {}
 
