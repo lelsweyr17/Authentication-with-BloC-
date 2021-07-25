@@ -1,32 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:test_app_surf/authBloC/auth.dart';
-import 'package:test_app_surf/authorization/UI/AuthPage.dart';
-import 'package:test_app_surf/users/UI/loadingErrorPage/LoadingErrorPage.dart';
-import 'package:test_app_surf/users/UI/userPage/UserPage.dart';
+import 'package:test_login/appNavigator/appNavigator.dart';
+import 'package:test_login/appNavigator/Cubit/sessionCubit.dart';
+import 'package:test_login/authSession/authRepository.dart';
+import 'package:test_login/userSession/userData/userRepository.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
-  Widget build(BuildContext context) {
-    return Provider(
-        create: (context) => Validate(),
-        child: MaterialApp( 
-          title: 'Test App Surf',
-          theme: ThemeData(
-              backgroundColor: Colors.white,
-              primaryColor: Colors.white,
-              accentColor: Color.fromRGBO(155, 81, 224, 1),
-              hintColor: Colors.grey,
-              fontFamily: 'SF Pro Display'),
-          // home: LoadingErrorPage(),
-          home: AuthorizationPage(),
-          // home: UserPage(),
-        ));
+  Widget build(context) {
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        backgroundColor: Colors.white,
+        fontFamily: 'SF Pro Display',
+      ),
+      home: MultiRepositoryProvider(
+        providers: [
+          RepositoryProvider<AuthRepository>(
+              create: (context) => AuthRepository()),
+          RepositoryProvider<UserRepository>(
+              create: (context) => UserRepository()),
+        ],
+        child: BlocProvider(
+          create: (context) =>
+              SessionCubit(authRepo: context.read<AuthRepository>()),
+          child: AppNavigator(),
+        ),
+      ),
+    );
   }
 }
