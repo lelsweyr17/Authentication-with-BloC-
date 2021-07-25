@@ -34,7 +34,7 @@ Susseccfull request status returns the data that is converted and represented as
 
 __________________________________________
 
-Installing(Установка):
+Установка(Installing):
 1. git clone https://github.com/lelsweyr17/SURF-test.git demo_app
 2. flutter pub get
 3. get packages
