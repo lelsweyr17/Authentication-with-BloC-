@@ -16,6 +16,8 @@ Email and password fields has a validation.
 При успешной авторизации приложение переходит в состояние авторизованного пользователя и отправляет запрос на URL: https://jsonplaceholder.typicode.com/users.
 _______________________________________________
 Email and password fields has a validation. Upon successful authorization, the app enters the authentized user state and sends a request to the URL: https://jsonplaceholder.typicode.com/users.
+
+<img width="414" alt="Screen Shot 2021-07-25 at 12 59 50 PM" src="https://user-images.githubusercontent.com/74770909/126895358-fe00208a-ca1b-4f21-90c2-8ecfcd664a72.png">
        
 При ошибке отображается страница ошибки загрузки данных с возможностью обновить страницу(повторный запрос).
 _______________________________________________
