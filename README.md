@@ -5,7 +5,7 @@ Demo app with local authentication and sending request.
 
 <img width="300" alt="Screen Shot 2021-07-25 at 12 53 23 PM" src="https://user-images.githubusercontent.com/74770909/126895177-d582e849-3e43-4128-83d7-6f0edbd044d5.png">
 
-Описание(Describtion):
+# Описание(Describtion):
 
 Поля авторизации email и пароль имеют валидацию.
 Email and password fields has a validation.
