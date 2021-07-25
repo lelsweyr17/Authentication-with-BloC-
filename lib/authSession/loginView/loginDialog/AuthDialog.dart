@@ -27,11 +27,13 @@ class AuthorizationDialog extends StatelessWidget {
       key: _formKey,
       child: Center(
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.5,
+          height: (MediaQuery.of(context).size.height * 0.5 > 320)
+              ? 320
+              : MediaQuery.of(context).size.height * 0.5,
           alignment: Alignment.center,
           child: Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: 50.0, vertical: 60.0),
+                const EdgeInsets.symmetric(horizontal: 50.0, vertical: 50.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
