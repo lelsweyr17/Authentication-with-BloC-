@@ -20,8 +20,9 @@ class UserScreen extends StatelessWidget {
   }
 
   Widget _sliverAppBar(context) {
+    double expandedHeight = 120;
     return SliverAppBar(
-      expandedHeight: 120,
+      expandedHeight: expandedHeight,
       centerTitle: true,
       actions: [
         Padding(
@@ -38,17 +39,16 @@ class UserScreen extends StatelessWidget {
       pinned: true,
       backgroundColor: Colors.white,
       flexibleSpace: LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-          double percent = ((constraints.maxHeight - kToolbarHeight) *
+        builder: (BuildContext context, BoxConstraints limits) {
+          double percent = ((limits.maxHeight - kToolbarHeight) *
               100 /
-              (120 - kToolbarHeight));
+              (expandedHeight - kToolbarHeight));
           double dx = 100 - percent;
-          if (constraints.maxHeight == 120) {
+          if (limits.maxHeight == expandedHeight) {
             dx = 0;
           }
           return Transform.translate(
-            offset: Offset(dx,
-                (constraints.maxHeight / 2 - kToolbarHeight) * percent / 100),
+            offset: Offset(dx, 0),
             child: FlexibleSpaceBar(
                 title: Text('Пользователи',
                     style: TextStyle(
