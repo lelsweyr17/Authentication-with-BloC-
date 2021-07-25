@@ -21,8 +21,8 @@ class UserScreen extends StatelessWidget {
 
   Widget _sliverAppBar(context) {
     return SliverAppBar(
-      //TODO: floating alignment of title via scrolling down(from bottomLeft to Center)
       expandedHeight: 120.0,
+      centerTitle: true,
       actions: [
         Padding(
           padding: const EdgeInsets.all(8.0),
@@ -37,6 +37,7 @@ class UserScreen extends StatelessWidget {
       floating: true,
       pinned: true,
       backgroundColor: Colors.white,
+      //TODO: floating alignment of title via scrolling down(from bottomLeft to Center)
       flexibleSpace: FlexibleSpaceBar(
           title: Text('Пользователи',
               style: TextStyle(
