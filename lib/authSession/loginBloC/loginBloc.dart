@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_login/authSession/authRepository.dart';
-import 'package:test_login/authSession/formSubmissionStatus.dart';
+import 'package:test_login/authSession/form/formSubmissionStatus.dart';
 import 'package:test_login/authSession/loginBloC/loginEvent.dart';
 import 'package:test_login/authSession/loginBloC/loginState.dart';
 

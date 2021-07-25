@@ -1,4 +1,4 @@
-import '../formSubmissionStatus.dart';
+import '../form/formSubmissionStatus.dart';
 
 class LoginState {
   final String email;
