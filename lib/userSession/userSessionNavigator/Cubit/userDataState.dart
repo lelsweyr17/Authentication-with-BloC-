@@ -8,5 +8,6 @@ class LoadingDataErrorState extends UserDataState {}
 
 class LoadedDataState extends UserDataState {
   List<User> loadedUser;
+
   LoadedDataState({required this.loadedUser});
 }

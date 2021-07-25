@@ -8,12 +8,6 @@ class SessionCubit extends Cubit<SessionState> {
   SessionCubit({required this.authRepo}) : super(Unauthenticated());
 
   void showAuth() => emit(Unauthenticated());
-  void showSession() {
-    emit(Authenticated());
-  }
-
-  void signOut() {
-    authRepo.signOut();
-    emit(Unauthenticated());
-  }
+  void showSession() => emit(Authenticated());
+  void logOut() => emit(Unauthenticated());
 }

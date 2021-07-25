@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class LoadingView extends StatelessWidget {
+class LoadingScreen extends StatelessWidget {
   @override
   Widget build(context) {
     return Scaffold(

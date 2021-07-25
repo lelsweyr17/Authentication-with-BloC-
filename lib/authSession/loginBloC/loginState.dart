@@ -19,7 +19,6 @@ class LoginState {
       return true;
     }
   }
-
   // Password validation
   bool _passwordValidation(password) {
     RegExp regExp = RegExp(r'^[a-zA-Z0-9].{7,}$');
@@ -29,7 +28,6 @@ class LoginState {
       return true;
     }
   }
-
   // Login button validation
   bool _isLoggedIn() {
     if (_emailValidation(email) == true &&

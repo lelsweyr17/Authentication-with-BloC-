@@ -6,8 +6,8 @@ import 'background/HeaderText.dart';
 import 'loginDialog/AuthDialog.dart';
 import 'background/AuthBackgroung.dart';
 
-class AuthorizationPage extends StatelessWidget {
-  const AuthorizationPage({Key? key}) : super(key: key);
+class AuthenticationPage extends StatelessWidget {
+  const AuthenticationPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

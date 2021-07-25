@@ -12,19 +12,24 @@ class AppNavigator extends StatelessWidget {
   Widget build(context) {
     return BlocBuilder<SessionCubit, SessionState>(builder: (context, state) {
       return Navigator(
-        pages: [
-          if (state is Unauthenticated)
-            MaterialPage(child: AuthorizationPage()),
-          if (state is Authenticated)
-            MaterialPage(
-                child: BlocProvider(
-              create: (context) =>
-                  UserDataCubit(userRepo: context.read<UserRepository>()),
-              child: UserNavigator(),
-            )),
-        ],
+        pages: _pages(state),
         onPopPage: (route, result) => route.didPop(result),
       );
     });
+  }
+
+  List<Page> _pages(state) {
+    List<Page> pages = [
+      if (state is Unauthenticated) MaterialPage(child: AuthenticationPage()),
+      if (state is Authenticated) MaterialPage(child: _blocProviderUserPage()),
+    ];
+    return pages;
+  }
+
+  Widget _blocProviderUserPage() {
+    return BlocProvider(
+        create: (context) =>
+            UserDataCubit(userRepo: context.read<UserRepository>()),
+        child: UserNavigator());
   }
 }

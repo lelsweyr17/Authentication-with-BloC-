@@ -7,8 +7,6 @@ import 'components/ReloadTextBotton.dart';
 import 'components/WarningSing.dart';
 
 class LoadingErrorPage extends StatelessWidget {
-  const LoadingErrorPage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     final UserDataCubit cubit = context.read<UserDataCubit>();

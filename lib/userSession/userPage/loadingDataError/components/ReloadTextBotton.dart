@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class ReloadTextButton extends StatelessWidget {
   final cubit;
+
   const ReloadTextButton({required final this.cubit}) : super();
 
   @override

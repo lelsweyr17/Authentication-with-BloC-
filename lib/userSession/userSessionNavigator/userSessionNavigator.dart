@@ -11,14 +11,21 @@ class UserNavigator extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<UserDataCubit, UserDataState>(builder: (context, state) {
       return Navigator(
-        pages: [
-          if (state is LoadingDataState) MaterialPage(child: LoadingView()),
-          if (state is LoadingDataErrorState)
-            MaterialPage(child: LoadingErrorPage()),
-          if (state is LoadedDataState) MaterialPage(child: UserScreen()),
-        ],
+        pages: _pages(state),
         onPopPage: (route, result) => route.didPop(result),
       );
     });
+  }
+
+  List<Page> _pages(state) {
+    List<Page> pages = [
+      if (state is LoadingDataState)
+        MaterialPage(child: LoadingScreen()),
+      if (state is LoadingDataErrorState)
+        MaterialPage(child: LoadingErrorPage()),
+      if (state is LoadedDataState)
+        MaterialPage(child: UserScreen()),
+    ];
+    return pages;
   }
 }
