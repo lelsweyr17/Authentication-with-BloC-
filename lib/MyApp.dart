@@ -16,25 +16,18 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  Widget _multiRepositoryProvider() {
-    return MultiRepositoryProvider(
-      providers: _providers(),
-      child: _blocProvider(),
-    );
-  }
-
-  Widget _blocProvider() {
-    return BlocProvider(
-        create: (context) =>
-            SessionCubit(authRepo: context.read<AuthRepository>()),
-        child: AppNavigator());
-  }
-
   ThemeData _themeData() {
     return ThemeData(
       primarySwatch: Colors.purple,
       backgroundColor: Colors.white,
       fontFamily: 'SF Pro Display',
+    );
+  }
+
+  Widget _multiRepositoryProvider() {
+    return MultiRepositoryProvider(
+      providers: _providers(),
+      child: _blocProviderAppNavigator(),
     );
   }
 
@@ -44,5 +37,12 @@ class MyApp extends StatelessWidget {
       RepositoryProvider<UserRepository>(create: (context) => UserRepository()),
     ];
     return providers;
+  }
+
+  Widget _blocProviderAppNavigator() {
+    return BlocProvider(
+        create: (context) =>
+            SessionCubit(authRepo: context.read<AuthRepository>()),
+        child: AppNavigator());
   }
 }

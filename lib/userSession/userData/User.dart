@@ -17,7 +17,7 @@ class User {
     return {
       'name': name,
       'email': email,
-      'companyName': companyName,
+      'company''name': companyName,
     };
   }
 }

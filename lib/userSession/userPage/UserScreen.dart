@@ -21,7 +21,7 @@ class UserScreen extends StatelessWidget {
 
   Widget _sliverAppBar(context) {
     return SliverAppBar(
-      expandedHeight: 120.0,
+      expandedHeight: 120,
       centerTitle: true,
       actions: [
         Padding(
@@ -37,15 +37,29 @@ class UserScreen extends StatelessWidget {
       floating: true,
       pinned: true,
       backgroundColor: Colors.white,
-      //TODO: floating alignment of title via scrolling down(from bottomLeft to Center)
-      flexibleSpace: FlexibleSpaceBar(
-          title: Text('Пользователи',
-              style: TextStyle(
-                  fontSize: 22.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black)),
-          titlePadding: EdgeInsets.all(16.0),
-          centerTitle: false),
+      flexibleSpace: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          double percent = ((constraints.maxHeight - kToolbarHeight) *
+              100 /
+              (120 - kToolbarHeight));
+          double dx = 100 - percent;
+          if (constraints.maxHeight == 120) {
+            dx = 0;
+          }
+          return Transform.translate(
+            offset: Offset(dx,
+                (constraints.maxHeight / 2 - kToolbarHeight) * percent / 100),
+            child: FlexibleSpaceBar(
+                title: Text('Пользователи',
+                    style: TextStyle(
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black)),
+                titlePadding: EdgeInsets.all(16.0),
+                centerTitle: false),
+          );
+        },
+      ),
     );
   }
 
@@ -67,25 +81,22 @@ class UserScreen extends StatelessWidget {
     return SliverList(
         delegate: SliverChildBuilderDelegate(
       (context, i) {
-        return Card(
-          elevation: 0.0,
-          child: ListTile(
-            title: Text('${state.loadedUser[i].name}',
-                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('${state.loadedUser[i].email}',
-                    style: TextStyle(fontSize: 13.0)),
-                Text('${state.loadedUser[i].companyName}',
-                    style: TextStyle(fontSize: 13.0, color: Colors.black)),
-              ],
-            ),
-            isThreeLine: true,
-            leading: Icon(Icons.account_circle_outlined,
-                size: 50.0, color: Color.fromRGBO(187, 187, 189, 1)),
-            onTap: () {},
+        return ListTile(
+          title: Text('${state.loadedUser[i].name}',
+              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+          subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('${state.loadedUser[i].email}',
+                  style: TextStyle(fontSize: 13.0)),
+              Text('${state.loadedUser[i].companyName}',
+                  style: TextStyle(fontSize: 13.0, color: Colors.black)),
+            ],
           ),
+          isThreeLine: true,
+          leading: Icon(Icons.account_circle_outlined,
+              size: 50.0, color: Color.fromRGBO(187, 187, 189, 1)),
+          onTap: () {},
         );
       },
       childCount: state.loadedUser.length,
